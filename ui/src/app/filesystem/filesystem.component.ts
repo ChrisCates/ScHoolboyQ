@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  selector: 'app-filesystem',
+  templateUrl: './filesystem.component.html',
+  styleUrls: ['./filesystem.component.scss']
 })
-export class IndexComponent implements OnInit {
+export class FilesystemComponent implements OnInit {
 
   constructor(public main: MainService) {
 

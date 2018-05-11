@@ -1,0 +1,58 @@
+<div class="outputs">
+  <h2>Processes</h2>
+  <div class="processes">
+    <div class="process" *ngFor="let process of this.main.monitors; let i = index;">
+      <div class="process-command">
+        <p>{{process.command}}</p>
+      </div>
+      <div class="process-header">
+        <div class="process-info">
+          <p class="pid">pid: {{process.pid}}</p>
+          <p class="signal">signal: {{process.signal}}</p>
+          <p class="state">state: {{process.state}}</p>
+        </div>
+        <div class="process-tabs">
+          <a
+            class="option easing out"
+            (click)="process.out_state = !process.out_state"
+            [ngClass]="{'active': process.out_state}"
+          >
+            out
+          </a>
+          <a
+            class="option easing err"
+            (click)="process.err_state = !process.err_state"
+            [ngClass]="{'active': process.err_state}"
+          >
+            err
+          </a>
+          <a
+            class="option easing err"
+            (click)="this.main.kill(process.pid);"
+            [ngClass]="{'active': process.err_state, 'invisible': process.state == 'stopped'}"
+          >
+            kill
+          </a>
+        </div>
+      </div>
+      <div class="process-outputs"
+        [ngClass]="{
+          'fluid': !process.out_state || !process.err_state
+        }"
+      >
+        <div class="process-output out" [ngClass]="{'active': process.out_state}">
+          <p class="process-output-label">Output</p>
+          <p *ngFor="let output of process.out; let io = index;">
+            {{output}}
+          </p>
+        </div>
+        <div class="process-output err" [ngClass]="{'active': process.err_state}">
+          <p class="process-output-label">Errors</p>
+          <p *ngFor="let output of process.err; let ie = index;">
+            {{output}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

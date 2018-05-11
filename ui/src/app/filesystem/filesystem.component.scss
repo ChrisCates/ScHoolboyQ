@@ -1,0 +1,24 @@
+@import "../../styles.scss";
+
+div.filesystem {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  input[type="text"] {
+    display: block;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    background: $syntax-bg;
+    color: white;
+    font-size: 14px;
+    padding: 0 15px;
+    outline: none;
+  }
+}

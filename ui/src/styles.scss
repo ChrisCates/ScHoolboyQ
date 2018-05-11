@@ -28,6 +28,7 @@ $hue-6-2: hsl( 39, 67%, 69%); // <-orange 2
 // Base colors -----------------------------------
 $syntax-fg:     $mono-1;
 $syntax-bg:     hsl($syntax-hue, $syntax-saturation, $syntax-brightness);
+$syntax-header: darken($syntax-bg, 5%);
 $syntax-gutter: darken($syntax-fg, 26%);
 $syntax-guide:  fade($syntax-fg, 15%);
 $syntax-accent: hsl($syntax-hue, 100%, 66% );
@@ -37,7 +38,7 @@ body {
   font-family: 'Source Sans Pro';
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
-  color: $syntax-fg;
+  color: $mono-1;
   background: $syntax-bg;
   width: 100vw;
   height: 100vh;
@@ -47,6 +48,7 @@ body {
 a {
  color: $hue-1;
  text-decoration: none;
+ cursor: pointer;
 }
 
 * {
@@ -59,7 +61,7 @@ a {
   transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-div.container {
+div#container {
  width: 100vw;
- height: calc(100vh - 50px);
+ height: calc(100vh - 40px);
 }

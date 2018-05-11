@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  selector: 'app-inputs',
+  templateUrl: './inputs.component.html',
+  styleUrls: ['./inputs.component.scss']
 })
-export class IndexComponent implements OnInit {
+export class InputsComponent implements OnInit {
 
   constructor(public main: MainService) {
 
