@@ -13,31 +13,48 @@ div.outputs {
 
   div.processes {
     width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    height: 100%;
     margin-right: -15px;
+    overflow: auto;
     div.process {
       background: $syntax-header;
       border-radius: 4px;
-      margin-right: 15px;
+      width: 100%;
+      height: 65px;
       margin-bottom: 15px;
-      width: calc(calc(100% - 30px) / 2);
-      min-width: 400px;
-      height: 320px;
+      overflow: hidden;
+
+      &.active {
+       height: 320px;
+      }
 
       div.process-command {
         width: 100%;
         height: 30px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 0 15px;
+        position: relative;
+
         p {
           color: $hue-6;
           font-size: 18px;
           font-weight: bold;
         }
+
+        a.process-toggle {
+         background: $hue-6;
+         color: white;
+         width: 20px;
+         height: 20px;
+         border-radius: 15px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 14px;
+        }
+
       }
 
       div.process-header {
@@ -68,13 +85,17 @@ div.outputs {
           a.option {
             font-size: 14px;
             font-weight: 700;
-            padding: 0 15px;
+            padding: 0 0px 1px 0px;
             margin-right: 15px;
+            width: 75px;
             height: 25px;
             display: flex;
             align-items: center;
+            justify-content: center;
             color: white;
             opacity: 0.75;
+            border-radius: 12.5px;
+
             &.out {
               background: $hue-4;
             }
@@ -103,13 +124,13 @@ div.outputs {
           width: 50%;
           height: 260px;
           overflow: auto;
-          padding: 15px;
+          padding: 0 15px;
           p {
             font-size: 14px;
             font-weight: 500;
           }
           p.process-output-label {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
           }
           &.err {

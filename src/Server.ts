@@ -30,8 +30,17 @@ express_app.use(bodyParser.urlencoded({ extended: true }));
 
 express_app.use(express.static(app_directory));
 
+
+
+express_app.get('/api/env', (req, res) => {
+ let env = process.env;
+ let cwd = env.SCHOOLBOYQ_CWD || env.HOME;
+ return res.status(200).json({ env, cwd });
+});
+
 express_app.post('/api/command', (req, res) => {
- let cwd = req.body.cwd || process.env.HOME;
+ let env = process.env;
+ let cwd = env.SCHOOLBOYQ_CWD || env.HOME;
 
  let commandString = req.body.command.trim();
  let command:any = exec(commandString, { cwd });
@@ -60,7 +69,7 @@ express_app.post('/api/command', (req, res) => {
   })
  });
 
- return res.status(200).json({ pid, signal });
+ return res.status(200).json({ pid, signal, cwd });
 });
 
 express_app.post('/api/command/kill', (req, res) => {

@@ -24,8 +24,12 @@ exports.express_app.use(morgan('tiny'));
 exports.express_app.use(bodyParser.json());
 exports.express_app.use(bodyParser.urlencoded({ extended: true }));
 exports.express_app.use(express.static(exports.app_directory));
+var cwd = process.env.SCHOOLBOYQ_CWD || process.env.HOME;
+var env = process.env;
+exports.express_app.get('/api/env', function (req, res) {
+    return res.status(200).json({ env: env, cwd: cwd });
+});
 exports.express_app.post('/api/command', function (req, res) {
-    var cwd = req.body.cwd || process.env.HOME;
     var commandString = req.body.command.trim();
     var command = child_process_1.exec(commandString, { cwd: cwd });
     var pid = command.pid;
@@ -48,7 +52,7 @@ exports.express_app.post('/api/command', function (req, res) {
             'data': code
         });
     });
-    return res.status(200).json({ pid: pid, signal: signal });
+    return res.status(200).json({ pid: pid, signal: signal, cwd: cwd });
 });
 exports.express_app.post('/api/command/kill', function (req, res) {
     var pid = req.body.pid;

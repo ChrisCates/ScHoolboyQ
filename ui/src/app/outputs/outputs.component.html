@@ -1,9 +1,16 @@
 <div class="outputs">
-  <h2>Processes</h2>
+  <h2>Processes running {{this.main.processes_running}}</h2>
   <div class="processes">
-    <div class="process" *ngFor="let process of this.main.monitors; let i = index;">
+    <div
+     class="process easing"
+     *ngFor="let process of this.main.monitors; let i = index;"
+     [ngClass]="{'active': process.toggle}"
+    >
       <div class="process-command">
-        <p>{{process.command}}</p>
+        <p>{{process.path_name}} {{process.command}}</p>
+        <a class="process-toggle" (click)="process.toggle = !process.toggle">
+         <i class="fa fa-caret-down"></i>
+        </a>
       </div>
       <div class="process-header">
         <div class="process-info">
@@ -17,14 +24,14 @@
             (click)="process.out_state = !process.out_state"
             [ngClass]="{'active': process.out_state}"
           >
-            out
+            out ({{process.out.length}})
           </a>
           <a
             class="option easing err"
             (click)="process.err_state = !process.err_state"
             [ngClass]="{'active': process.err_state}"
           >
-            err
+            err ({{process.err.length}})
           </a>
           <a
             class="option easing err"
@@ -37,16 +44,16 @@
       </div>
       <div class="process-outputs"
         [ngClass]="{
-          'fluid': !process.out_state || !process.err_state
+          'fluid': !process.out_state || !process.err_state || process.err.length == 0 || process.out.length == 0
         }"
       >
-        <div class="process-output out" [ngClass]="{'active': process.out_state}">
+        <div class="process-output out" [ngClass]="{'active': process.out_state && process.out.length != 0}">
           <p class="process-output-label">Output</p>
           <p *ngFor="let output of process.out; let io = index;">
             {{output}}
           </p>
         </div>
-        <div class="process-output err" [ngClass]="{'active': process.err_state}">
+        <div class="process-output err" [ngClass]="{'active': process.err_state && process.err.length != 0}">
           <p class="process-output-label">Errors</p>
           <p *ngFor="let output of process.err; let ie = index;">
             {{output}}

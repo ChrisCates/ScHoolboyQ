@@ -4,6 +4,41 @@ div.inputs {
   padding: 15px;
   width: 100%;
   height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  a.env-option {
+   width: 75px;
+   height: 35px;
+   border-radius: 17.5px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: $hue-1;
+   color: white;
+   font-size: 14px;
+   font-weight: bold;
+   i {
+    margin-right: 5px;
+    margin-top: 2.5px;
+   }
+  }
+
+  a.dir-option {
+   width: 150px;
+   height: 35px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0 5px;
+   font-size: 14px;
+   font-weight: bold;
+   i {
+    margin-right: 5px;
+    margin-top: 2.5px;
+   }
+  }
 
   input[type="text"] {
     display: block;
@@ -17,4 +52,54 @@ div.inputs {
     padding: 0 15px;
     outline: none;
   }
+}
+
+div.env-popover {
+ background: $syntax-header;
+ width: 400px;
+ height: 500px;
+ border-radius: 5px;
+ max-height: calc(100vh - 150px);
+ overflow: auto;
+ position: absolute;
+ top: 60px;
+ left: 15px;
+
+ opacity: 0;
+ pointer-events: none;
+
+ &.active {
+  opacity: 1;
+  pointer-events: visible;
+ }
+
+ div.env-var {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  a.option {
+   width: 20px;
+   height: 20px;
+   font-size: 12px;
+   border-radius: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: $hue-5;
+   color: white;
+   margin-bottom: 5px;
+  }
+  p {
+   display: block;
+   font-size: 14px;
+   font-weight: bold;
+   padding-left: 5px;
+   padding-bottom: 5px;
+   width: calc(100% - 35px);
+   height: 100%;
+   overflow: hidden;
+  }
+ }
 }
