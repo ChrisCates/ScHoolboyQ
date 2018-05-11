@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# ignore src_js file except the .gitkeep
+./src_js/*
+!./src_js/.gitkeep

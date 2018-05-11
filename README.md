@@ -26,3 +26,10 @@ ScHoolboy Q makes sure that every command is a first class citizen. ScHoolboy Q 
 The initial prototype tackles these issues first and foremost... However, I am open to new ideas that may improve interfacing with shells. Feel free to drop an issue... However, you should read the guidelines for posting an issue first. Issues will not be read unless you quote a verse from ScHoolboy Q in the issue.
 
 ## Compiling and running for yourself
+
+1. Expects Node (8 > YOUR_VERSION < 9 at the time of writing)
+2. Build scripts require yarn `sudo npm install yarn -g`
+3. Need to `yarn install` in both root directory and the `./ui` directory to debug fully.
+4. You can now test with `yarn run dev_start`
+
+MIT Licensed

@@ -1,0 +1,22 @@
+{
+  "name": "schoolboyq",
+  "version": "0.1.0",
+  "description": "ScHoolboy Q's Shell Interface: An optimized interface named after ScHoolboy Q. ",
+  "main": "./src/index.js",
+  "repository": "https://github.com/ChrisCates/ScHoolboyQ.git",
+  "author": "Chris Cates <hello@chriscates.ca>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc ./src/App.ts --outDir ./src_js",
+    "build_ui": "cd ui && ng build --prod",
+    "start_server": "yarn run build && node ./src_js/Server.js",
+    "start": "electron ./src_js/App.js",
+    "dev_start": "yarn run build && yarn run build_ui && yarn start"
+  },
+  "dependencies": {
+    "electron": "^2.0.0",
+    "electron-serve": "^0.1.0",
+    "express": "^4.16.3",
+    "fs-jetpack": "^1.3.0"
+  }
+}
