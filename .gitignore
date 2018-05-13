@@ -57,6 +57,15 @@ typings/
 # dotenv environment variables file
 .env
 
+# No .DS_Store
+.DS_Store
+**/*/.DS_Store
+
+
 # ignore src_js file except the .gitkeep
 ./src_js/*
 !./src_js/.gitkeep
+
+# ignore zip files
+**/*.zip
+builds/*.zip

@@ -1,4 +1,45 @@
 <div class="filesystem">
-  <h2>Filewatcher</h2>
-  <input type="text" placeholder="Watch a new directory..."/>
+  <h2>
+   <i class="fas fa-folder-open"></i>
+   Filewatcher
+  </h2>
+  <input type="text" placeholder="Watch a new directory..." [(ngModel)]="this.main.folders_input" (keyup.enter)="this.main.newWatch();"/>
+  <div class="cb-inputs">
+   <div class="cb-input">
+    <p class="label">Check every (N)ms</p>
+    <input type="number" placeholder="ms" [(ngModel)]="this.main.folders_input_ms"/>
+   </div>
+   <div class="cb-input">
+    <p class="label">Recursive Walk? [TBD]</p>
+    <span class="tg-list-item">
+      <input
+       class="tgl tgl-ios"
+       id="recursive"
+       type="checkbox"
+       [checked]="false"
+      />
+      <label class="tgl-btn" for="recursive"></label>
+    </span>
+   </div>
+  </div>
+
+  <div class="watched-folders">
+   <div *ngFor="let key of Object.keys(this.main.folders); let i = index;" class="watched-folder">
+    <div class="folder-header">
+     <p class="root_folder"><i class="fas fa-folder-open"></i> {{key}}</p>
+     <div class="folder-options">
+      <a class="folder-option easing red" (click)="this.main.removeWatch(key);">
+       <i class="fas fa-times"></i>
+      </a>
+      <a class="folder-option easing green" (click)="this.main.toggleWatch(key);">
+       <i class="fas fa-window-maximize"></i>
+      </a>
+     </div>
+    </div>
+    <div class="folder-contents easing" [ngClass]="{'active': this.main.folders_toggles[key]}">
+     <p *ngFor="let content of this.main.folders[key]; let ii = index;">{{content}}</p>
+    </div>
+   </div>
+ </div>
+
 </div>

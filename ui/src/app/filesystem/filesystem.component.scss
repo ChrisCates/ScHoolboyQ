@@ -20,5 +20,102 @@ div.filesystem {
     font-size: 14px;
     padding: 0 15px;
     outline: none;
+    margin: 0 0 10px 0;
+  }
+
+  div.cb-inputs {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+  }
+
+  div.cb-input {
+   width: 50%;
+   padding: 0 10px;
+
+   p.label {
+    margin: 0 0 5px 0;
+    font-size: 12px;
+   }
+   span.tg-list-item {
+    position: relative;
+    top: 5px;
+   }
+   input[type="number"] {
+     display: block;
+     width: 100%;
+     height: 25px;
+     border-radius: 12.5px;
+     border: none;
+     background: $syntax-bg;
+     color: white;
+     font-size: 12px;
+     padding: 0 15px;
+     outline: none;
+   }
+  }
+
+  div.watched-folders {
+   width: 100%;
+   height: calc(100% - 100px);
+   overflow: auto;
+   padding: 15px 0;
+
+   div.folder-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    div.folder-options {
+     height: 30px;
+     width: auto;
+     display: flex;
+     align-items: center;
+    }
+    a.folder-option {
+     margin-left: 10px;
+     width: 20px;
+     height: 20px;
+     border-radius: 10px;
+     font-size: 10px;
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     &.red {
+      background: $hue-5-2;
+     }
+     &.green {
+      background: $hue-4;
+     }
+    }
+   }
+
+   div.watched-folder {
+    width: 100%;
+    height: 100%;
+    max-height: 220px;
+    p.root_folder {
+     font-size: 14px;
+     font-weight: bold;
+     margin: 0 0 5px 0;
+    }
+    div.folder-contents {
+     width: 100%;
+     height: 0px;
+     max-height: 200px;
+     overflow: auto;
+     background: $syntax-bg;
+     p {
+      font-size: 12px;
+      padding: 5px;
+     }
+     &.active {
+      height: 100%;
+     }
+    }
+   }
   }
 }

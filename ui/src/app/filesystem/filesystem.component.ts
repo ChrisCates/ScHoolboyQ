@@ -8,6 +8,8 @@ import { MainService } from '../main.service';
 })
 export class FilesystemComponent implements OnInit {
 
+  public Object = Object;
+
   constructor(public main: MainService) {
 
   }

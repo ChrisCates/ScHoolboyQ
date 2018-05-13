@@ -10,7 +10,8 @@ var AppInterface = /** @class */ (function () {
             width: 800,
             height: 600,
             autoHideMenuBar: true,
-            useContentSize: true
+            useContentSize: true,
+            icon: path.join(__dirname, "..", "icons", "q.ico")
         };
     }
     AppInterface.prototype.render = function () {

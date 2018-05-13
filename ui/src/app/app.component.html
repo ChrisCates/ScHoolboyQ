@@ -4,16 +4,63 @@
     <h1>ScHoolboy Q</h1>
   </div>
   <div class="options">
-    <a class="option easing">
-      <i class="fa fa-gear"></i>
+    <a
+    class="option easing"
+    [ngClass]="{'active': this.main.display_settings == true}"
+    (click)="this.main.display_settings = !this.main.display_settings"
+    >
+      <i class="fas fa-cogs"></i>
       Settings
     </a>
     <a class="option easing">
-      <i class="fa fa-wrench"></i>
+      <i class="fa fa-bug"></i>
       Debug
     </a>
   </div>
 </header>
+
+<div
+ class="settings-popup easing"
+ [ngClass]="{'active': this.main.display_settings == true}"
+>
+ <p>
+  <span>Process starts minimized?</span>
+  <span class="tg-list-item">
+    <input
+     class="tgl tgl-ios"
+     id="min_max"
+     type="checkbox"
+     [checked]="!this.main.default_toggle" (change)="this.main.default_toggle = !this.main.default_toggle"
+    />
+    <label class="tgl-btn" for="min_max"></label>
+  </span>
+ </p>
+ <p>
+  <span>Process shows output at start?</span>
+  <span class="tg-list-item">
+    <input
+     class="tgl tgl-ios"
+     id="output"
+     type="checkbox"
+     [checked]="this.main.default_out" (change)="this.main.default_out = !this.main.default_out"
+    />
+    <label class="tgl-btn" for="output"></label>
+  </span>
+ </p>
+ <p>
+  <span>Process shows errors at start?</span>
+  <span class="tg-list-item">
+    <input
+     class="tgl tgl-ios"
+     id="errors"
+     type="checkbox"
+     [checked]="this.main.default_err" (change)="this.main.default_err = !this.main.default_err"
+    />
+    <label class="tgl-btn" for="errors"></label>
+  </span>
+ </p>
+</div>
+
 <div id="container">
   <router-outlet></router-outlet>
 </div>

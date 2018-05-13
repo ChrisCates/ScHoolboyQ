@@ -1,5 +1,8 @@
 <div class="outputs">
-  <h2>Processes running {{this.main.processes_running}}</h2>
+  <h2>
+   <i class="fas fa-window-maximize"></i>
+   Processes running {{this.main.processes_running}}
+  </h2>
   <div class="processes">
     <div
      class="process easing"
@@ -9,7 +12,7 @@
       <div class="process-command">
         <p>{{process.path_name}} {{process.command}}</p>
         <a class="process-toggle" (click)="process.toggle = !process.toggle">
-         <i class="fa fa-caret-down"></i>
+         <i class="fas fa-window-maximize"></i>
         </a>
       </div>
       <div class="process-header">
@@ -17,6 +20,9 @@
           <p class="pid">pid: {{process.pid}}</p>
           <p class="signal">signal: {{process.signal}}</p>
           <p class="state">state: {{process.state}}</p>
+          <p class="eta">time:
+           {{this.main.getTime(process)}}ms
+          </p>
         </div>
         <div class="process-tabs">
           <a
@@ -49,15 +55,11 @@
       >
         <div class="process-output out" [ngClass]="{'active': process.out_state && process.out.length != 0}">
           <p class="process-output-label">Output</p>
-          <p *ngFor="let output of process.out; let io = index;">
-            {{output}}
-          </p>
+          <div *ngFor="let output of process.out; let io = index;" [innerHTML]="output"><div>
         </div>
         <div class="process-output err" [ngClass]="{'active': process.err_state && process.err.length != 0}">
           <p class="process-output-label">Errors</p>
-          <p *ngFor="let output of process.err; let ie = index;">
-            {{output}}
-          </p>
+          <div *ngFor="let output of process.err; let ie = index;" [innerHTML]="output"></div>
         </div>
       </div>
     </div>

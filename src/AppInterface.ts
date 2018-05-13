@@ -14,6 +14,7 @@ export class AppInterface {
   height: 600,
   autoHideMenuBar: true,
   useContentSize: true,
+  icon: path.join(__dirname, "..", "icons", "q.ico")
  }
 
  constructor() {

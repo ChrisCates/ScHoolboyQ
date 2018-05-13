@@ -8,7 +8,6 @@ let appInterface = new AppInterface();
 
 app.on('ready', () => {
  appInterface.render();
- appInterface.devDebug();
 });
 
 app.on('window-all-closed', () => {
@@ -18,7 +17,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
- if (app === null) {
-   appInterface.render();
- }
+ appInterface.render();
 });
+
+export { appInterface }

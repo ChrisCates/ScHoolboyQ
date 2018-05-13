@@ -3,15 +3,14 @@
    class="env-option easing"
    (click)="this.main.display_env = !this.main.display_env;"
   >
-   <i class="fa fa-gear"></i>
+   <i class="fas fa-toolbox"></i>
    env
   </a>
   <a
    class="dir-option easing"
-   (mouseenter)="this.main.display_cwd = true;"
-   (mouseleave)="this.main.display_cwd = false;"
+   (click)="this.main.display_cwd = !this.main.display_cwd;"
   >
-   <i class="fa fa-folder"></i>
+   <i class="fas fa-folder-open"></i>
    {{this.main.cwd_formatted}}
   </a>
   <input type="text" placeholder="Type a shell command..." [(ngModel)]="this.main.command_input" (keyup.enter)="this.main.run(this.main.command_input)"/>
@@ -21,9 +20,6 @@
   [ngClass]="{'active': this.main.display_env}"
   >
    <div class="env-var" *ngFor="let envVar of this.main.env; let i = index;">
-    <a class="option easing delete">
-     <i class="fa fa-close"></i>
-    </a>
     <p>{{envVar.key}}: {{envVar.value}}</p>
    </div>
   </div>
@@ -32,7 +28,7 @@
   class="dir-popover easing"
   [ngClass]="{'active': this.main.display_cwd}"
   >
-
+  <input type="text" placeholder="Need a valid CWD..." [(ngModel)]="this.main.cwd" (input)="this.main.formatCwd();"/>
  </div>
 
 </div>
