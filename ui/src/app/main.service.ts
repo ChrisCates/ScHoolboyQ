@@ -44,6 +44,13 @@ export class MainService {
    this.loadEnv();
   }
 
+  debug() {
+   superagent.post(env.api + "/api/debug")
+   .end((err, res) => {
+    console.log(err, res.text);
+   })
+  }
+
   loadEnv() {
    superagent.get(env.api + "/api/env")
    .end((err, res) => {

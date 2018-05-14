@@ -5,7 +5,22 @@ import * as fs from 'fs-jetpack';
 import * as bodyParser from 'body-parser';
 import * as SocketIO from 'socket.io';
 import * as morgan from 'morgan';
-import { spawn, exec, execSync } from 'child_process';
+import { exec, spawn, execSync } from 'child_process';
+
+import * as shellenv from 'shell-env';
+import * as fixpath from 'fix-path';
+
+fixpath();
+process.env = shellenv.sync('/bin/bash');
+
+/*
+import Sudoer from 'electron-sudo';
+
+let sudoer = new Sudoer({ name: 'ScHoolboy Q' });
+let spawn = sudoer.spawn;
+let exec = sudoer.exec;
+let execSync = sudoer.execSync;
+*/
 
 import { appInterface } from './App';
 

@@ -8,6 +8,18 @@ var bodyParser = require("body-parser");
 var SocketIO = require("socket.io");
 var morgan = require("morgan");
 var child_process_1 = require("child_process");
+var shellenv = require("shell-env");
+var fixpath = require("fix-path");
+fixpath();
+process.env = shellenv.sync('/bin/bash');
+/*
+import Sudoer from 'electron-sudo';
+
+let sudoer = new Sudoer({ name: 'ScHoolboy Q' });
+let spawn = sudoer.spawn;
+let exec = sudoer.exec;
+let execSync = sudoer.execSync;
+*/
 var App_1 = require("./App");
 exports.express_dir = __dirname;
 exports.express_port = process.env.EXPRESS_PORT || 9001;

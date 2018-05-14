@@ -3,6 +3,7 @@
 png2icns icons/q.png -s 16,32,64,128,256 -o icons/q.icns
 
 # Make them apps yo
+export ELECTRON_RUN_AS_NODE=true
 
 # Mac OS
 electron-packager ./src_js ScHoolboyQ --platform=darwin --icon="icons/q.icns" --out=builds

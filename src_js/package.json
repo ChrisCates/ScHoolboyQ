@@ -11,15 +11,18 @@
     "build_ui": "cd ui && ng build --prod",
     "start_server": "yarn run build && node ./src_js/Server.js",
     "start": "electron ./src_js/App.js --icon icons/q.ico",
-    "dev_start": "yarn run build && yarn run build_ui && yarn start"
+    "dev_start": "yarn run build && yarn run build_ui && sh prepare.sh && yarn start"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
     "electron": "^2.0.0",
     "electron-serve": "^0.1.0",
+    "electron-sudo": "^4.0.12",
     "express": "^4.16.3",
+    "fix-path": "^2.1.0",
     "fs-jetpack": "^1.3.0",
     "morgan": "^1.9.0",
+    "shell-env": "^1.0.0",
     "socket.io": "^2.1.0"
   }
 }
