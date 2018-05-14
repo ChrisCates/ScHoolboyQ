@@ -11,7 +11,7 @@
     "build_ui": "cd ui && ng build --prod",
     "start_server": "yarn run build && node ./src_js/Server.js",
     "start": "electron ./src_js/App.js --icon icons/q.ico",
-    "dev_start": "yarn run build && yarn run build_ui && yarn start"
+    "dev_start": "yarn run build && yarn run build_ui && sh prepare.sh && yarn start"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

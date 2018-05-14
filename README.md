@@ -31,5 +31,6 @@ The initial prototype tackles these issues first and foremost... However, I am o
 2. Build scripts require yarn `sudo npm install yarn -g`
 3. Need to `yarn install` in both root directory and the `./ui` directory to debug fully.
 4. You can now test with `yarn run dev_start`
+5. Review `package.json` for appropriate build commands.
 
 MIT Licensed
